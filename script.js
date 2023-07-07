@@ -20,6 +20,10 @@ function displayOurServices(services) {
   }
 
   services.forEach((service) => {
+    const imgElement = document.createElement('img');
+    imgElement.src = service.icon;
+    homeContent.appendChild(imgElement);
+
     const hElement = document.createElement('h5');
     hElement.textContent = service.name;
     homeContent.appendChild(hElement);
@@ -28,9 +32,7 @@ function displayOurServices(services) {
     pElement.textContent = service.description;
     homeContent.appendChild(pElement);
 
-    const imgElement = document.createElement('img');
-    imgElement.src = service.icon;
-    homeContent.appendChild(imgElement);
+    
   });
 }
 
@@ -59,13 +61,14 @@ function displaySpecialists(specialists) {
     const specialistDiv = document.createElement('div');
     specialistDiv.classList.add('specialist');
 
-    const nameElement = document.createElement('h5');
-    nameElement.textContent = specialist.name;
-    specialistDiv.appendChild(nameElement);
-
     const imageSpecialist = document.createElement('img');
     imageSpecialist.src = specialist.image;
     specialistDiv.appendChild(imageSpecialist);
+
+
+    const nameElement = document.createElement('h5');
+    nameElement.textContent = specialist.name;
+    specialistDiv.appendChild(nameElement);
 
     const descriptionInfo = document.createElement('p');
     descriptionInfo.textContent = specialist.description;
