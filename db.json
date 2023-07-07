@@ -1,0 +1,60 @@
+{
+    "Our-Services": [
+      {
+        "name": "Heartcare",
+        "description":"We have contacts with the very best specialists in the field.",
+        "icon":"https://cdn-icons-png.flaticon.com/512/3974/3974808.png",
+        "id":"1"
+      },
+      {
+        "name": "Skincare",
+        "description":"Dermatologists ready to listen to your issues.",
+        "icon":"https://cdn-icons-png.flaticon.com/128/7829/7829803.png",
+        "id":"2"
+      },
+      {
+        "name": "Eyecare",
+        "description":"Opticians with years of experience are readilly available.",
+        "icon":"https://cdn-icons-png.flaticon.com/128/9458/9458496.png",
+        "id":"3"
+      },
+      {
+        "name":"Surgery",
+        "description":"Our surgeons are the best in the region.",
+        "icon":"https://cdn-icons-png.flaticon.com/128/4006/4006097.png",
+        "id":"4"
+      }
+    ],
+    "Specialists": [
+      {
+        "name": "Dr.Nancy Wanjiru",
+        "appointment": 4,
+        "description":"Cardiologist",
+        "image":"https://www.pbmchealth.org/application/files/5815/8277/9095/PBMC_Qualities_That_Make_a_Good_Cardiologist_IMAGE1.jpeg",
+        "id":"1"
+      },
+      {
+        "name": "Dr.Grace Thornfield",
+        "appointment": 1,
+        "description":"Dermatologist",
+        "image":"https://www.verywellhealth.com/thmb/iGUhYMvdx0TK4OtUCTF2rpU8Xl4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1154030721-974bcd6d70ff4489ba961317f1f3640f.jpg",
+        "id":"2"
+      },
+      {
+        "name": "Dr.Imran Jibtri",
+        "appointment": 5,
+        "description":"Optician",
+        "image":"https://www.sait.ca/assets/images/sait/programs/pr-optician-600x400.jpg",
+        "id":"3"
+      },
+      {
+        "name":"Ian Simiyu",
+        "appointment":3,
+        "description":"Surgeon",
+        "image":"https://www.surgicalreview.org/wp-content/uploads/2020/08/src_surgical_review_corporation_quality_health_care_surgeons.png",
+        "id":"4"
+        
+      }
+    ],
+    "appointments":[]
+  }
