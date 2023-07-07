@@ -14,18 +14,31 @@ function getOurServices() {
 
 // Function to display our services
 function displayOurServices(services) {
-  if (!Array.isArray(services)) {
-    console.error("Error: Invalid services data");
-    return;
-  }
+    if (!Array.isArray(services)) {
+        console.error("Error: Invalid services data");
+        return;
+    }
 
-  let html = "<h2>Our Services</h2>";
-  html += "<ul>";
-  services.forEach((service) => {
-    html += `<li>${service.name}</li>`;
-  });
-  html += "</ul>";
-  homeContent.innerHTML = html;
+    let html = "<h2>Our Services</h2>";
+    html += "<ul>";
+    services.forEach((service) => {
+        const hElement=document.createElement('h5');
+        hElement.src=service.name;
+        homeContent.appendChild(hElement)
+
+        const pElement=document.createElement('p')
+        pElement.src=service.description;
+        homeContent.appendChild(pElement)
+
+
+
+        const imgElement = document.createElement('img');
+        imgElement.src = service.icon
+        
+        homeContent.appendChild(imgElement);
+    });
+    //html += "</ul>";
+    //   homeContent.innerHTML = html;
 }
 
 // Function to fetch specialists
@@ -49,10 +62,26 @@ function displaySpecialists(specialists) {
   let html = "<h2>Specialists</h2>";
   html += "<ul>";
   specialists.forEach((specialist) => {
-    html += `<li>${specialist.name} - Bookings: ${specialist.appointment}</li>`;
+    const nameElement=document.createElement('h5')
+    nameElement=specialist.name
+    homeContent.appendChild(nameElement)
+
+    const imageSpecialist=document.createElement('img')
+    imageSpecialist.src=specialist.image
+    homeContent.appendChild(imageSpecialist)
+
+    const descriptionInfo=document.createElement('p')
+    descriptionInfo=specialist.description
+    homeContent.appendChild(descriptionInfo)
+
+    const appointmentInfo=document.createElement('li')
+    appointmentForm=specialist.appointment
+    homeContent.appendChild(appointmentForm)
+
+   
   });
-  html += "</ul>";
-  homeContent.innerHTML = html;
+//   html += "</ul>";
+//   homeContent.innerHTML = html;
 }
 
 // Function to book an appointment
@@ -73,7 +102,6 @@ function bookAppointment(name, email, specialistId) {
       console.error("Error:", error);
     });
 }
-
 
 function scrollToSpecialists() {
   const specialistsSection = document.getElementById("specialistsSection");
@@ -109,14 +137,14 @@ function generateSpecialistOptions(specialists) {
   return html;
 }
 
-// Function to update specialist options based on the selected service by patient
-function updateSpecialist(serviceId) {
-  getSpecialists().then((specialists) => {
-    const specialistSelect = document.getElementById("specialist");
-    specialistSelect.innerHTML = generateSpecialistOptions(specialists);
-  });
-}
-
 // Adding event listener for form submission
 const appointmentForm = document.getElementById("appointmentForm");
-appointmentForm.addEventListener("submit", handleAppointmentBooking);
+appointmentForm.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  const nameInput = document.getElementById("name").value;
+  const emailInput = document.getElementById("email").value;
+  const specialistInput = document.getElementById("specialist").value;
+
+  bookAppointment(nameInput, emailInput, specialistInput);
+});
