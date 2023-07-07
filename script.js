@@ -14,31 +14,24 @@ function getOurServices() {
 
 // Function to display our services
 function displayOurServices(services) {
-    if (!Array.isArray(services)) {
-        console.error("Error: Invalid services data");
-        return;
-    }
+  if (!Array.isArray(services)) {
+    console.error("Error: Invalid services data");
+    return;
+  }
 
-    let html = "<h2>Our Services</h2>";
-    html += "<ul>";
-    services.forEach((service) => {
-        const hElement=document.createElement('h5');
-        hElement.src=service.name;
-        homeContent.appendChild(hElement)
+  services.forEach((service) => {
+    const hElement = document.createElement('h5');
+    hElement.textContent = service.name;
+    homeContent.appendChild(hElement);
 
-        const pElement=document.createElement('p')
-        pElement.src=service.description;
-        homeContent.appendChild(pElement)
+    const pElement = document.createElement('p');
+    pElement.textContent = service.description;
+    homeContent.appendChild(pElement);
 
-
-
-        const imgElement = document.createElement('img');
-        imgElement.src = service.icon
-        
-        homeContent.appendChild(imgElement);
-    });
-    //html += "</ul>";
-    //   homeContent.innerHTML = html;
+    const imgElement = document.createElement('img');
+    imgElement.src = service.icon;
+    homeContent.appendChild(imgElement);
+  });
 }
 
 // Function to fetch specialists
@@ -59,29 +52,23 @@ function displaySpecialists(specialists) {
     return;
   }
 
-  let html = "<h2>Specialists</h2>";
-  html += "<ul>";
   specialists.forEach((specialist) => {
-    const nameElement=document.createElement('h5')
-    nameElement=specialist.name
-    homeContent.appendChild(nameElement)
+    const nameElement = document.createElement('h5');
+    nameElement.textContent = specialist.name;
+    homeContent.appendChild(nameElement);
 
-    const imageSpecialist=document.createElement('img')
-    imageSpecialist.src=specialist.image
-    homeContent.appendChild(imageSpecialist)
+    const imageSpecialist = document.createElement('img');
+    imageSpecialist.src = specialist.image;
+    homeContent.appendChild(imageSpecialist);
 
-    const descriptionInfo=document.createElement('p')
-    descriptionInfo=specialist.description
-    homeContent.appendChild(descriptionInfo)
+    const descriptionInfo = document.createElement('p');
+    descriptionInfo.textContent = specialist.description;
+    homeContent.appendChild(descriptionInfo);
 
-    const appointmentInfo=document.createElement('li')
-    appointmentForm=specialist.appointment
-    homeContent.appendChild(appointmentForm)
-
-   
+    const appointmentInfo = document.createElement('li');
+    appointmentInfo.textContent = specialist.appointment;
+    homeContent.appendChild(appointmentInfo);
   });
-//   html += "</ul>";
-//   homeContent.innerHTML = html;
 }
 
 // Function to book an appointment
