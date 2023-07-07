@@ -52,22 +52,30 @@ function displaySpecialists(specialists) {
     return;
   }
 
+  const specialistsSection = document.getElementById("specialistsSection");
+  specialistsSection.innerHTML = ""; // Clear the existing content
+
   specialists.forEach((specialist) => {
+    const specialistDiv = document.createElement('div');
+    specialistDiv.classList.add('specialist');
+
     const nameElement = document.createElement('h5');
     nameElement.textContent = specialist.name;
-    homeContent.appendChild(nameElement);
+    specialistDiv.appendChild(nameElement);
 
     const imageSpecialist = document.createElement('img');
     imageSpecialist.src = specialist.image;
-    homeContent.appendChild(imageSpecialist);
+    specialistDiv.appendChild(imageSpecialist);
 
     const descriptionInfo = document.createElement('p');
     descriptionInfo.textContent = specialist.description;
-    homeContent.appendChild(descriptionInfo);
+    specialistDiv.appendChild(descriptionInfo);
 
-    const appointmentInfo = document.createElement('li');
-    appointmentInfo.textContent = specialist.appointment;
-    homeContent.appendChild(appointmentInfo);
+    const appointmentInfo = document.createElement('p');
+    appointmentInfo.textContent = `Bookings: ${specialist.appointment}`;
+    specialistDiv.appendChild(appointmentInfo);
+
+    specialistsSection.appendChild(specialistDiv);
   });
 }
 
@@ -114,6 +122,9 @@ function redirectToAppointment() {
 
 // Fetch our services and display them
 getOurServices();
+
+// Fetch specialists and display them
+getSpecialists();
 
 // Function to dynamically generate specialist options
 function generateSpecialistOptions(specialists) {
